@@ -1,0 +1,17 @@
+%{
+int p=0;
+int n=0;
+%}
+%%
+[0-9]+ {p++;printf("\n positive number:%s\n",yytext);}
+[-][0-9]+ {n++;printf("\n negative number:%s\n",yytext);}
+%%
+int yywrap(void){}
+int main()
+{
+printf("\n Enter numbers:");
+yylex();
+printf("positive=%d,"
+         "negative=%d\n",p,n);
+return 0;
+}
